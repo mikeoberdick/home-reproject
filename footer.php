@@ -7,26 +7,35 @@
  * @package understrap
  */
 
-$the_theme = wp_get_theme();
-$container = get_theme_mod( 'understrap_container_type' );
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 ?>
 
 <div id="js-heightControl" style="height: 0;">&nbsp;</div>
 
-	<footer class = "container-fluid">
-		<div class="row">
-			<div class="col-sm-12 text-center">
-				<div class = "d-inline-flex mb-3">
-					<a class = "social-link facebook mr-2" target = "_blank" href="<?php the_field('facebook_url', 'options') ?>"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-					<a class = "social-link twitter mr-2" target = "_blank" href="<?php the_field('twitter_url', 'options') ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-					<a class = "social-link linkedin" target = "_blank" href="<?php the_field('linkedin_url', 'options') ?>"><i class="fa fa-linkedin" aria-hidden="true"></i></a>	
-				</div>
-				<p class = "mb-0">&copy <?php echo bloginfo('name'); ?></p>
-				<p class = "mb-0">Website designed and developed by <a target = "_blank" href = "https://pixelstrikecreative.com" alt = "Pixelstrike Creative Site">Pixelstrike Creative</a></p>
-			</div><!--col-md-12 -->
-		</div><!-- row -->
-	</footer>
-</div><!-- #page-wrapper -->
+<div id = "footerWrapper" class="container py-3">
+	<div class="row">
+		<div class="col-md-12">
+			<footer class="site-footer row" id="colophon">
+				<div class="col-md-6">
+					<?php $logo = get_field('footer_logo', 'options'); ?>
+					<img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>">
+				</div><!-- .col-md-6 -->
+				
+				<div class="col-md-6 text-right">
+					<p class = "mb-0">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?></p>
+					<p class = "mb-0">
+						<a href="/privacy-policy">Privacy</a> | <a href="terms-and-conditions">Terms</a>
+					</p>
+					<p class = "mb-0">Website by <a href="https://www.designs4theweb.com">Designs 4 The Web</a></p>
+				</div><!-- .col-md-6 -->
+			</footer><!-- #colophon -->
+		</div><!--col end -->
+	</div><!-- row end -->
+</div><!-- container end -->
+
+</div><!-- #page we need this extra closing tag here from header file -->
 
 <?php wp_footer(); ?>
 
