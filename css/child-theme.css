@@ -11669,6 +11669,9 @@ body {
 .green {
   color: #1F5621; }
 
+.gray {
+  color: #404041; }
+
 /*------------------------------------------------*/
 /*--------------------[LINKS]---------------------*/
 /*------------------------------------------------*/
@@ -11749,18 +11752,20 @@ a {
     font-family: "Roboto", sans-serif;
     font-weight: bold; }
 
+#hero {
+  min-height: 500px;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  -webkit-box-shadow: rgba(70, 70, 70, 0.65) 0 0 0 500px inset;
+          box-shadow: rgba(70, 70, 70, 0.65) 0 0 0 500px inset; }
+
 #footerWrapper {
   margin-top: 50px;
   border-top: solid 3px #1F5621; }
 
 #homepage #hero {
-  min-height: 500px;
-  background-position: center !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-attachment: fixed !important;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset;
-          box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset; }
+  background-attachment: fixed !important; }
 
 #homepage #bucketsText {
   color: #1F5621; }
@@ -11783,8 +11788,9 @@ a {
       font-style: italic;
       font-weight: 500; }
 
-.home #footerWrapper {
+.home #footerWrapper, .page-template-network #footerWrapper {
   padding-top: 0;
+  margin-top: 0;
   border: 0; }
 
 #aboutUs #imageSection .name {
@@ -11824,6 +11830,56 @@ a {
   #contact #contactBox i {
     color: #891533; }
 
+#network #hero h1 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+  color: #fff; }
+
+#network #hero h5 {
+  font-weight: bold;
+  color: #fff; }
+
+#network #video, #network #form {
+  background-color: rgba(31, 86, 33, 0.1); }
+
+#network #customerCallout a {
+  color: #891533;
+  text-decoration: underline; }
+  #network #customerCallout a:hover {
+    text-decoration: underline; }
+
+#network #howItWorks {
+  border-bottom: solid 3px #1F5621; }
+
+#serviceRegions #starburst {
+  text-align: center; }
+  #serviceRegions #starburst h5 {
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: bold;
+    color: #1F5621;
+    background-image: url("/wp-content/themes/understrap-child/img/starburst.png");
+    background-size: cover !important;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 250px;
+    width: 250px; }
+
+#serviceRegions #currentRegions h5 {
+  border-bottom: solid 3px #1F5621; }
+
+#serviceRegions #currentRegions a {
+  color: #891533;
+  text-decoration: underline; }
+  #serviceRegions #currentRegions a:hover {
+    text-decoration: underline; }
+
 /*------------------------------------------------*/
 /*------------------[NINJA FORMS]-----------------*/
 /*------------------------------------------------*/
@@ -11838,7 +11894,7 @@ a {
     border-radius: 5px; }
     .nf-form-content .nf-response-msg p:last-of-type {
       margin-bottom: 0; }
-  .nf-form-content input:not([type="button"]), .nf-form-content textarea {
+  .nf-form-content input:not([type="button"]), .nf-form-content textarea, .nf-form-content select {
     padding: 10px 15px;
     border: solid 1px #1F5621 !important;
     border-radius: 5px !important; }

@@ -1,50 +1,151 @@
-<?php /* Template Name: Network */ ?>
+<?php
+/**
+ * Template Name: Network
+ * @package understrap
+**/
 
-<?php get_header(); ?>
-<div id="ourWork">
-	<main class="site-main" id="main">
-		
-		<?php $hero = get_field('hero'); ?>
-		<section class="hero container-fluid position-relative" style = "background: url('<?php echo $hero['image']['url']; ?>');">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<h1 class = "mb-0 text-white"><?php echo $hero['header']; ?></h1>
-					</div><!-- .col-sm-12 -->
-				</div><!-- .row -->	
-			</div>
-		</section><!-- .container-fluid -->
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
-		<section id="work" class = "pt-5 mb-5">
-			<div class="container">
-				<div id = "masonry">
-				<?php $work_query = new WP_Query( 'post_type=project&posts_per_page=-1' ); ?>
-				<?php if ( $work_query->have_posts() ) : while ( $work_query->have_posts() ) : $work_query->the_post(); ?>
-					<a class = "project d-flex" href="<?php the_permalink(); ?>">
-						<div class = "d-flex flex-column">
-							<?php the_post_thumbnail( 'full' ); ?>
-							<div class = "p-3">
-								<h3 class="h5 project-card-title"><?php the_title(); ?></h3><!-- .h5 -->
-								<div class="categories">
-									<ul class="list-unstyled mb-0">
-										<?php
-										$term_list = wp_get_post_terms($post->ID, 'project-category');
-										$count = count($term_list);
-										$i = 1;
-										foreach($term_list as $term_single) { ?>
-											<li class = "project-category d-inline"><?php echo $term_single->name; if ($i != $count) {echo ',';} ?>
-											</li>
-										<?php $i++; } ?>
-									</ul><!-- .list-unstyled -->
-								</div><!-- .categories -->
-							</div>
-						</div><!-- .project -->
-					</a>
-					<?php endwhile; ?>
-					<?php endif; ?>
-				</div><!-- #masonry -->
-			</div><!-- .container -->
-		</section><!-- #callouts -->
-	</main><!-- #main -->
-</div><!-- #ourWork -->
+get_header(); ?>
+
+<?php 
+    global $post;
+    $page_slug = $post->post_name;
+    $page_title = get_the_title();
+?>
+
+<div id="network" class = "page-wrapper">
+	<div id="content" tabindex="-1">
+		<main class="site-main" id="main">
+			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+				<?php get_template_part( 'partials/content', 'header' ); ?>
+				<div class="entry-content">
+					<?php $hero = get_field('hero'); ?>
+					<section id = "hero" class="container-fluid position-relative d-flex align-items-center mb-5" style = "background: url('<?php echo $hero['image']['url']; ?>');">
+					<div class="container">
+						<div class="row text-center">
+							<div class="col-sm-12">
+								<?php if ($hero['title']) : ?><h1 class="h3 mb-1"><?php echo $hero['title']; ?></h1><?php endif; ?>
+								<?php if ($hero['subtitle']) : ?><h5 class = "mb-5"><?php echo $hero['subtitle']; ?></h5><?php endif; ?>
+								<?php if ($hero['content']) : ?><p class = "text-white mb-0"><?php echo $hero['content']; ?></p><?php endif; ?>
+							</div><!-- .col-sm-12 -->
+						</div><!-- .row -->	
+					</div>
+				</section><!-- .container-fluid -->
+				<?php if ( $page_slug == 'network-owner' || $page_slug == 'network-member' ) : ?>
+				<section id = "serviceRegions" class="container mb-5">
+					<div class="row mb-5">
+						<div class="col-md-6">
+							<?php $map = get_field('service_regions_map','option'); ?>
+							<img src="<?php echo $map['url']; ?>" alt="<?php echo $map['alt']; ?>">
+						</div><!-- .col-md-6 -->
+						<div class="col-md-6 d-flex flex-column justify-content-center">
+							<h4 class = "green mb-3 font-weight-bold">Our Current Service Regions Are...</h4>
+							<a class = "mb-3" href = '/new-haven-ct'><button role = 'button' class = 'btn maroon-button btn-lg'>New Haven, CT</button></a>
+							<a href = '/twin-cities-mn'><button role = 'button' class = 'btn maroon-button btn-lg'>Twin Cities, MN</button></a>
+						</div><!-- .col-md-6 -->
+					</div><!-- .row -->
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<a href = '/join'><button role = 'button' class = 'btn green-button btn-lg'>Become a <?php echo $page_title; ?></button></a>
+						</div><!-- .col-sm-12 -->
+					</div><!-- .row -->
+				</section><!-- .container -->
+			<?php endif; ?>
+			<?php if ( $page_slug == 'network-customer' ) : ?>
+				<section id = "customerCallout" class="container mb-5">
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<p class = "green"><?php the_field('callout'); ?></p>
+						</div><!-- .col-sm-12 -->
+					</div><!-- .row -->
+				</section><!-- .container -->
+			<?php endif; ?>
+				<section id = "video" class = "py-5 mb-5">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6">
+								<?php $video = get_field('video'); ?>
+								<div class = "mb-3 d-flex align-items-center">
+									<img class = "mr-2" src="<?php echo get_stylesheet_directory_uri(); ?>/img/video.png" alt="video icon">Watch the video to learn more</div>
+								<div>VIDEO</div>
+							</div><!-- .col-md-6 -->
+							<div class="col-md-6 d-flex flex-column justify-content-center">
+								<h5 class = "maroon mb-3 font-weight-bold text-uppercase"><?php echo $video['header']; ?></h5>
+								<?php if ($video['text_above_bullets']) : ?>
+								<p><?php echo $video['text_above_bullets']; ?></p>
+								<?php endif; ?>
+								<ul class = "list-unstyled mb-3">
+								  <?php
+								  	$list = $video['bullets'];
+								   	$items = explode(PHP_EOL, $list);
+								   foreach($items as $item) {
+								   echo '<li class = "d-flex">' . $item . '</li>';
+								  } ?>
+								</ul>
+								<?php if ($video['text_below_bullets']) : ?>
+								<p><?php echo $video['text_below_bullets']; ?></p>
+								<?php endif; ?>
+							</div><!-- .col-md-6 -->
+						</div><!-- .row -->
+					</div><!-- .container -->
+				</section><!-- #video -->
+				<?php if ( $page_slug == 'network-owner' || $page_slug == 'network-member' ) : ?>
+				<section id = "howItWorks" class="container mb-5 pb-5">
+					<div class="row">
+						<div class="col-md-3">
+							<h1 class = "font-weight-bold"><span class = "green">HOW</span><br><span class="maroon">IT</span> <span class="gray">WORKS</span></h1>
+						</div><!-- .col-md-3 -->
+						<div class="col-md-9 d-flex flex-column">
+							<ul class = "list-unstyled mb-3">
+							  <?php
+							  	$list = get_field('how_it_works');
+							   	$items = explode(PHP_EOL, $list);
+							   foreach($items as $item) {
+							   echo '<li class = "d-flex">' . $item . '</li>';
+							  } ?>
+							</ul>
+						</div><!-- .col-md-9 -->
+					</div><!-- .row -->
+				</section><!-- .container -->
+			<?php endif; ?>
+			<section id = "process" class="container mb-5">
+					<div class="row">
+						<div class="col-sm-12">
+							<h5 class = "mb-3 maroon font-weight-bold text-uppercase">THE COLLABORATIVE PROCESS</h5>
+							<p>Click on the steps below to learn more.</p>
+						</div><!-- .col-sm-12 -->
+						<?php while( have_rows('process_cards') ): the_row(); 
+
+						// vars
+						$front = get_sub_field('front');
+						$back = get_sub_field('back');
+						?>
+
+						<div class = "card col-md-4">
+							<div class="card-wrapper">
+								<p><?php echo $front; ?></p>
+							</div><!-- .card-wrapper -->
+						</div><!-- .col-md-4 -->
+
+						<?php endwhile; ?>
+					</div><!-- .row -->
+				</section><!-- .container -->
+				<section id = "form" class = "py-5">
+					<div class="container">
+						<div class="row text-center">
+							<div class="col-sm-12">
+								<h5 class = "mb-3 font-weight-bold maroon text-uppercase"><?php the_field('form_title'); ?></h5>
+								<p class = "mb-3"><?php echo the_field('form_content'); ?></p>
+								<?php echo do_shortcode('[ninja_form id=1]'); ?>
+							</div><!-- .col-sm-12 -->	
+						</div><!-- .row -->
+					</div><!-- .container -->
+				</section><!-- #form -->
+				</div><!-- .entry-content -->
+			</article><!-- #post-## -->
+		</main><!-- #main -->
+	</div><!-- #content -->
+</div><!-- .page-wrapper -->
 <?php get_footer(); ?>

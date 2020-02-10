@@ -38,6 +38,10 @@ body {
   color: $green;
 }
 
+.gray {
+  color: $gray;
+}
+
 /*------------------------------------------------*/
 /*--------------------[LINKS]---------------------*/
 /*------------------------------------------------*/
@@ -140,6 +144,14 @@ a {
   }
 }
 
+#hero {
+    min-height: 500px;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    box-shadow:  rgba(70,70,70, .65) 0 0 0 500px inset;
+  }
+
 #footerWrapper {
   margin-top: 50px;
   border-top: solid 3px $green;
@@ -147,12 +159,7 @@ a {
 
 #homepage {
   #hero {
-    min-height: 500px;
-    background-position: center !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
     background-attachment: fixed !important;
-    box-shadow:  rgba(0,0,0, .5) 0 0 0 500px inset;
   }
   #bucketsText {
     color: $green;
@@ -180,9 +187,10 @@ a {
   }
 }
 
-.home {
+.home, .page-template-network {
   #footerWrapper {
     padding-top: 0;
+    margin-top: 0;
     border: 0;
   }
 }
@@ -244,6 +252,65 @@ a {
   }
 }
 
+#network {
+  #hero {
+    h1 {
+      font-family: $roboto-condensed;
+      font-weight: bold;
+      color: #fff;
+    }
+    h5 {
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+  #video, #form {
+    background-color: rgba(31,86,33,.10);
+  }
+  #customerCallout {
+    a {
+      color: $maroon;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  #howItWorks {
+    border-bottom: solid 3px $green;
+  }
+}
+
+#serviceRegions {
+  #starburst {
+    text-align: center;
+    h5 {
+      font-family: $roboto-condensed;
+      font-weight: bold;
+      color: $green;
+      background-image: url('/wp-content/themes/understrap-child/img/starburst.png');
+      background-size: cover !important;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      height: 250px;
+      width: 250px;
+    }
+  }
+  #currentRegions {
+    h5 {
+      border-bottom: solid 3px $green;
+    }
+    a {
+      color: $maroon;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 /*------------------------------------------------*/
 /*------------------[NINJA FORMS]-----------------*/
 /*------------------------------------------------*/
@@ -262,7 +329,7 @@ a {
         margin-bottom: 0;
       }
   }
-  input:not([type="button"]), textarea {
+  input:not([type="button"]), textarea, select {
     padding: 10px 15px;
     border: solid 1px $green !important;
     border-radius: 5px !important;
