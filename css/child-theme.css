@@ -11713,6 +11713,11 @@ a {
   .green-button:hover {
     background-color: #113113 !important; }
 
+.grey-button {
+  background-color: #404041 !important; }
+  .grey-button:hover {
+    background-color: #272727 !important; }
+
 /*------------------------------------------------*/
 /*--------------------[HEADER]--------------------*/
 /*------------------------------------------------*/
@@ -11788,7 +11793,7 @@ a {
       font-style: italic;
       font-weight: 500; }
 
-.home #footerWrapper, .page-template-network #footerWrapper {
+.home #footerWrapper, .page-template-network #footerWrapper, .page-template-join #footerWrapper {
   padding-top: 0;
   margin-top: 0;
   border: 0; }
@@ -11879,6 +11884,50 @@ a {
   text-decoration: underline; }
   #serviceRegions #currentRegions a:hover {
     text-decoration: underline; }
+
+#networkTestimonials #testimonialNavigation a {
+  padding: 10px 15px;
+  border-top: solid 3px #891533;
+  border-bottom: solid 3px #891533;
+  border-right: solid 3px #891533;
+  font-family: "Roboto Condensed", sans-serif;
+  text-transform: uppercase;
+  color: #404041;
+  -webkit-transition: background .5s;
+  transition: background .5s; }
+  #networkTestimonials #testimonialNavigation a:first-of-type {
+    border-left: solid 3px #891533;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px; }
+  #networkTestimonials #testimonialNavigation a:last-of-type {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; }
+
+#networkTestimonials #testimonialNavigation .mixitup-control-active {
+  background: #891533;
+  color: #fff; }
+
+#networkTestimonials .testimonial-wrapper {
+  background-color: rgba(31, 86, 33, 0.1); }
+
+#join #buckets {
+  background-color: rgba(31, 86, 33, 0.1); }
+  #join #buckets .bucket-wrapper {
+    height: 100%;
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+            box-shadow: 0 8px 6px -6px #999;
+    background-color: #fff; }
+    #join #buckets .bucket-wrapper h4 {
+      font-family: "Roboto Condensed", sans-serif;
+      font-weight: bold;
+      color: #404041; }
+    #join #buckets .bucket-wrapper p:nth-of-type(odd) {
+      color: #1F5621; }
+    #join #buckets .bucket-wrapper p:nth-of-type(even) {
+      color: #891533; }
+    @media (min-width: 768px) {
+      #join #buckets .bucket-wrapper button {
+        width: 75%; } }
 
 /*------------------------------------------------*/
 /*------------------[NINJA FORMS]-----------------*/

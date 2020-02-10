@@ -96,6 +96,13 @@ a {
     }
 }
 
+.grey-button {
+  background-color: $gray !important;
+  &:hover {
+    background-color: darken( $gray, 10% ) !important;
+    }
+}
+
 /*------------------------------------------------*/
 /*--------------------[HEADER]--------------------*/
 /*------------------------------------------------*/
@@ -187,7 +194,7 @@ a {
   }
 }
 
-.home, .page-template-network {
+.home, .page-template-network, .page-template-join {
   #footerWrapper {
     padding-top: 0;
     margin-top: 0;
@@ -306,6 +313,62 @@ a {
       text-decoration: underline;
       &:hover {
         text-decoration: underline;
+      }
+    }
+  }
+}
+
+#networkTestimonials {
+  #testimonialNavigation {
+    a {
+      padding: 10px 15px;
+      border-top: solid 3px $maroon;
+      border-bottom: solid 3px $maroon;
+      border-right: solid 3px $maroon;
+      font-family: $roboto-condensed;
+      text-transform: uppercase;
+      color: $gray;
+      transition: background .5s;
+      &:first-of-type {
+        border-left: solid 3px $maroon;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      &:last-of-type {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
+    .mixitup-control-active {
+      background: $maroon;
+      color: #fff;
+    }
+  }
+  .testimonial-wrapper {
+    background-color: rgba(31,86,33,.10);
+  }
+}
+
+#join {
+  #buckets {
+    background-color: rgba(31,86,33,.10);
+    .bucket-wrapper {
+      height: 100%;
+      @include shadow;
+      background-color: #fff;
+      h4 {
+        font-family: $roboto-condensed;
+        font-weight: bold;
+        color: $gray;
+      }
+      p:nth-of-type(odd) {
+        color: $green;
+      }
+      p:nth-of-type(even) {
+        color: $maroon;
+      }
+      button {
+        @include media-breakpoint-up(md) {width: 75%;}
       }
     }
   }

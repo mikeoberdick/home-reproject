@@ -39,6 +39,32 @@ defined( 'ABSPATH' ) || exit;
 
 <?php wp_footer(); ?>
 
+<?php if ( is_page('testimonials') ) { ?>
+	<script>
+		var containerEl = document.querySelector('#testimonials');
+		if (jQuery(window).width() < 769) {
+			var selectFilter = document.querySelector('#mobileSelector');
+			var mixer = mixitup(containerEl, {
+  				selectors: {
+    				control: '[data-mixitup-control]'
+		  		}
+			})
+
+			 selectFilter.addEventListener('change', function() {
+     			var selector = selectFilter.value;
+     			mixer.filter(selector);
+   			});
+		}  else if (jQuery(window).width() > 768) {
+			var mixer = mixitup(containerEl, {
+  				selectors: {
+    				control: '[data-mixitup-control]'
+		  		}
+			})
+		}
+	</script>
+<?php } ?>
+
+
 </body>
 
 </html>
