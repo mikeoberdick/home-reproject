@@ -11745,6 +11745,11 @@ a {
 /*------------------------------------------------*/
 /*---------------------[PAGES]--------------------*/
 /*------------------------------------------------*/
+.underlined {
+  padding-bottom: 1rem;
+  border-bottom: solid 1px #404041;
+  margin-bottom: 1rem; }
+
 .page-header {
   margin: 50px auto;
   text-align: center; }

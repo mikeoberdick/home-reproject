@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
 					<p class = "mb-0">
 						<a href="/privacy-policy">Privacy</a> | <a href="terms-and-conditions">Terms</a>
 					</p>
-					<p class = "mb-0">Website by <a href="https://www.designs4theweb.com">Designs 4 The Web</a></p>
+					<p class = "mb-0">Website by <a target = "_blank" href="https://www.designs4theweb.com">Designs 4 The Web</a></p>
 				</div><!-- .col-md-6 -->
 			</footer><!-- #colophon -->
 		</div><!--col end -->
