@@ -277,6 +277,14 @@ a {
       color: #fff;
     }
   }
+  li {
+    i {
+      font-size: 16px;
+      color: $green;
+      margin-right: 5px;
+      margin-top: 5px; 
+    }
+  }
   #video, #form {
     background-color: rgba(31,86,33,.10);
   }
@@ -291,6 +299,68 @@ a {
   }
   #howItWorks {
     border-bottom: solid 3px $green;
+  }
+  .outer {
+    text-align: center;
+    .number {
+      text-align: center;
+      display: inline-flex;
+      z-index: 1;
+      position: relative;
+      background: #1f5621;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      width: 50px;
+      border-radius: 50px;
+      color: white;
+    }
+  .flip-container {
+    perspective: 1000px;
+    margin-top: -25px;
+    .flipper {
+      position: relative;
+      transform-style: preserve-3d;
+      transition: .6s;
+    }
+  }
+}
+  .flip-container:hover .flipper {
+    transform: rotateY(180deg);
+  }
+  .front, .back {
+    position: relative;
+    z-index: 1;
+    display: block;
+    backface-visibility: hidden;
+    overflow: hidden;
+    border: solid 1px $maroon;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    background-color: white;
+    color: $green;
+  }
+  .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: rotateY(180deg);
+    background-color: $maroon;
+    color: #fff;
+  }
+  #arrow {
+    height: 96px;
+    width: 100%;
+    background-image: url('/wp-content/themes/understrap-child/img/arrow.png');
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 

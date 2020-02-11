@@ -11849,6 +11849,12 @@ a {
   font-weight: bold;
   color: #fff; }
 
+#network li i {
+  font-size: 16px;
+  color: #1F5621;
+  margin-right: 5px;
+  margin-top: 5px; }
+
 #network #video, #network #form {
   background-color: rgba(31, 86, 33, 0.1); }
 
@@ -11860,6 +11866,84 @@ a {
 
 #network #howItWorks {
   border-bottom: solid 3px #1F5621; }
+
+#network .outer {
+  text-align: center; }
+  #network .outer .number {
+    text-align: center;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    z-index: 1;
+    position: relative;
+    background: #1f5621;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    color: white; }
+  #network .outer .flip-container {
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    margin-top: -25px; }
+    #network .outer .flip-container .flipper {
+      position: relative;
+      -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+      -webkit-transition: .6s;
+      transition: .6s; }
+
+#network .flip-container:hover .flipper {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg); }
+
+#network .front, #network .back {
+  position: relative;
+  z-index: 1;
+  display: block;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  overflow: hidden;
+  border: solid 1px #891533;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+#network .front {
+  z-index: 2;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  background-color: white;
+  color: #1F5621; }
+
+#network .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  background-color: #891533;
+  color: #fff; }
+
+#network #arrow {
+  height: 96px;
+  width: 100%;
+  background-image: url("/wp-content/themes/understrap-child/img/arrow.png");
+  background-repeat: no-repeat;
+  background-size: contain; }
 
 #serviceRegions #starburst {
   text-align: center; }

@@ -81,7 +81,7 @@ get_header(); ?>
 								  	$list = $video['bullets'];
 								   	$items = explode(PHP_EOL, $list);
 								   foreach($items as $item) {
-								   echo '<li class = "d-flex">' . $item . '</li>';
+								   echo '<li class = "d-flex"><i class="fa fa-circle" aria-hidden="true"></i>' . $item . '</li>';
 								  } ?>
 								</ul>
 								<?php if ($video['text_below_bullets']) : ?>
@@ -103,7 +103,7 @@ get_header(); ?>
 							  	$list = get_field('how_it_works');
 							   	$items = explode(PHP_EOL, $list);
 							   foreach($items as $item) {
-							   echo '<li class = "d-flex">' . $item . '</li>';
+							   echo '<li class = "d-flex"><i class="fa fa-circle" aria-hidden="true"></i>' . $item . '</li>';
 							  } ?>
 							</ul>
 						</div><!-- .col-md-9 -->
@@ -114,8 +114,9 @@ get_header(); ?>
 					<div class="row">
 						<div class="col-sm-12">
 							<h5 class = "mb-3 maroon font-weight-bold text-uppercase">THE COLLABORATIVE PROCESS</h5>
-							<p>Click on the steps below to learn more.</p>
+							<p class = 'mb-5'>Click on the steps below to learn more.</p>
 						</div><!-- .col-sm-12 -->
+						<?php $i = 1; ?>
 						<?php while( have_rows('process_cards') ): the_row(); 
 
 						// vars
@@ -123,13 +124,20 @@ get_header(); ?>
 						$back = get_sub_field('back');
 						?>
 
-						<div class = "card col-md-4">
-							<div class="card-wrapper">
-								<p><?php echo $front; ?></p>
-							</div><!-- .card-wrapper -->
-						</div><!-- .col-md-4 -->
-
-						<?php endwhile; ?>
+						<div class="outer col-md-4 mb-3">
+							<span class="number"><?php echo $i; ?></span>
+						   <div class="flip-container">
+						    <div class="flipper">
+						      <div class="front p-3">
+						        <p class = "mb-0"><?php echo $front; ?></p>
+						      </div>
+						      <div class="back p-3">
+						         <p class = "mb-0"><?php echo $back; ?></p>
+						      </div>
+						     </div>
+						  </div>
+						</div>
+						<?php $i++; endwhile; ?>
 					</div><!-- .row -->
 				</section><!-- .container -->
 				<section id = "form" class = "py-5">
